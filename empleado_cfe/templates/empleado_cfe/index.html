@@ -1,0 +1,123 @@
+{% extends 'empleado_cfe/base.html' %}
+
+{% block body %}
+<h3 class = "mt-4">Todos los empleados</h3>
+<div class = "row">
+    <div class = "col-12">
+        {% if empleados %}
+            <div class="card bg-light mb-4 me-4 mb-4">
+                <div class="card-header">
+                    <i class="fa-solid fa-list fa-lg"></i> Registro del empleado
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        <div class = "table-responsive">
+                            <table class="table table-light">
+                                <thead>
+                                    <tr>
+                                        <th scope = "col">Clave del Empleado</th>
+                                        <th scope = "col">Nombre</th>
+                                        <th scope = "col">Apellido</th>
+                                        <th scope = "col">Puesto</th>
+                                        <th scope = "col">Fecha de Contratación</th>
+                                        <th scope = "col">Empleado Activo</th>
+                                        <th scope = "col">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for empleado in empleados %}
+                                        <tr>
+                                            <td>{{ empleado.clave_emp }}</td>
+                                            <td>{{ empleado.nombre_emp }}</td>
+                                            <td>{{ empleado.apellido_emp }}</td>
+                                            <td>{{ empleado.puesto_emp }}</td>
+                                            <td>{{ empleado.fecha_contratacion }}</td>
+                                            <td>{{ empleado.activo_emp }}</td>
+                                            <td>
+                                                <button type="button" 
+                                                class="btn btn-success me-1" 
+                                                data-bs-toggle="modal" 
+                                                data-bs-target="#myModal{{empleado.clave_emp}}">
+                                                    <i class="fa-solid fa-circle-info fa-lg"></i>
+                                                </button>
+
+                                                <!--Modal - Ver Empleado-->
+                                                <div class="modal" id="myModal{{empleado.clave_emp}}" tabindex="-1" aria-labelledby="myModalLabel1" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title">
+                                                                Empleado: {{ empleado.nombre_emp }} {{ empleado.apellido_emp }}
+                                                            </h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true"></span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <ul class = "list-unstyled">
+                                                                <li><strong>Clave del Empleado:</strong> {{ empleado.clave_emp }}</li>
+                                                                <li><strong>Nombre:</strong> {{ empleado.nombre_emp }}</li>
+                                                                <li><strong>Apellido:</strong> {{ empleado.apellido_emp }}</li>
+                                                                <li><strong>Puesto:</strong> {{ empleado.puesto_emp }}</li>
+                                                                <li><strong>Fecha de Contratación:</strong> {{ empleado.fecha_contratacion }}</li>
+                                                                <li><strong>¿Empleado Activo?:</strong> {{ empleado.activo_emp }}</li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+                                                        </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <a class = "btn btn-warning me-1" href = "{% url 'editar_empleado' empleado.clave_emp %}">
+                                                    <i class="fa-solid fa-pen-to-square fa-lg"></i>
+                                                </a>
+
+                                                <button type = "button" 
+                                                class = "btn btn-danger"
+                                                data-bs-toggle = "modal"
+                                                data-bs-target = "#deleteModal{{empleado.clave_emp}}">
+                                                    <i class="fa-solid fa-trash fa-lg"></i>
+                                                </button>
+
+                                                <!--Modal - Eliminar Empleado-->
+                                                <div class="modal" id="deleteModal{{empleado.clave_emp}}" tabindex="-1" aria-labelledby="myModalLabel2" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title">
+                                                                Empleado: {{ empleado.nombre_emp }} {{ empleado.apellido_emp }}
+                                                            </h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true"></span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <p>¿Estás seguro de que deseas eliminar este empleado?</p>
+                                                            <form action = "{% url 'eliminar_empleado' empleado.clave_emp %}" method = "POST">
+                                                                {% csrf_token %}
+                                                                <button type="submit" class="btn btn-danger" value = "Delete">Eliminar</button>
+                                                            </form>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+                                                        </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </p>
+                </div>
+            </div>
+        {% else %}
+            <p>No hay empleados registrados.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
