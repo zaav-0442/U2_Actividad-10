@@ -1,10 +1,10 @@
 ﻿# U2-Actividad10
-<img width="1920" height="1040" alt="image" src="https://github.com/user-attachments/assets/27e4dc44-b10c-40b2-a91d-afed198f198f" />
+<img width="1920" height="1041" alt="image" src="https://github.com/user-attachments/assets/b4f85188-fc8c-4504-a975-73659c6e4dba" />
 
-<img width="1920" height="1040" alt="image" src="https://github.com/user-attachments/assets/890d4f34-063e-414e-a921-0e9b0cdab9b2" />
+<img width="1920" height="1040" alt="image" src="https://github.com/user-attachments/assets/bc7dca4c-2669-4725-b83c-5b9e0be4f66e" />
 
-<img width="1920" height="1040" alt="image" src="https://github.com/user-attachments/assets/586cef1b-c448-4db4-a6f5-5d4c4f6a2ec3" />
+<img width="1920" height="1042" alt="image" src="https://github.com/user-attachments/assets/2a2fbcef-950c-467a-808e-1fb82e109fa2" />
 
-<img width="1920" height="1040" alt="image" src="https://github.com/user-attachments/assets/ee256ef5-c21d-4106-89a7-3f8c1ef568f4" />
+<img width="1920" height="1041" alt="image" src="https://github.com/user-attachments/assets/985c87c1-3a93-488b-b2bb-dd76544d238f" />
 
-<img width="1920" height="1040" alt="image" src="https://github.com/user-attachments/assets/c8a0585d-8210-477b-99fa-cb3dfa80aca0" />
+<img width="1920" height="1041" alt="image" src="https://github.com/user-attachments/assets/5180eb1a-7e25-4477-9fcd-aeaa3f666afa" />
